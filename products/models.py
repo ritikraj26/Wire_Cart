@@ -47,9 +47,11 @@ class Product(BaseModel):
     def __str__(self) -> str:
         return self.product_name
     
-
     def get_product_price_by_size(self,size):
         return self.price + SizeVariant.objects.get(size_name=size).price
+    
+    def get_product_price_by_color(self,color):
+        return self.price + ColorVariant.objects.get(color_name=color).price
 
 
 class ProductImage(BaseModel):

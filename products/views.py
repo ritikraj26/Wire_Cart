@@ -12,6 +12,12 @@ def get_product(request, slug):
             price = product.get_product_price_by_size(size)
             context['selected_size'] = size
             context['updated_price'] = price
+        
+        # if request.GET.get('color'):
+        #     color = request.GET.get('color')
+        #     price = product.get_product_price_by_color(color)
+        #     context['selected_color'] = color
+        #     context['updated_price'] = context['updated_price'] + price
 
         return render(request,'product/product.html',context)
     
